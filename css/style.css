@@ -351,3 +351,179 @@ ul { list-style: none; margin: 0; padding: 0; }
   .feature + .feature { border-left: 0; border-top: 1px solid var(--line); padding-top: 24px; }
   .feature { padding-inline: 0; }
 }
+
+/* ---------- Активный пункт меню ---------- */
+.nav > ul > li > a.active { color: var(--accent); position: relative; }
+.nav > ul > li > a.active::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* ========== Страница «Обо мне» ========== */
+.about .text { margin-bottom: 0; }
+.about-hero {
+  position: relative;
+  overflow: hidden;
+  margin-top: -120px;
+  padding: 150px 0 60px;
+  background: linear-gradient(180deg, #fcf3e9, var(--bg));
+}
+.about-hero-photo {
+  position: absolute;
+  top: 100px; right: 0; bottom: 0;
+  width: 58%;
+}
+.about-hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%), linear-gradient(180deg, transparent, #000 12%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent, #000 25%), linear-gradient(180deg, transparent, #000 12%);
+  mask-composite: intersect;
+}
+.about-hero-mobile { display: none; }
+.about-hero-content { position: relative; max-width: 420px; }
+
+.breadcrumbs { display: flex; gap: 8px; margin-bottom: 30px; font-size: 13px; color: var(--accent); }
+.breadcrumbs a { color: var(--muted); }
+.breadcrumbs a:hover { color: var(--accent); }
+
+.page-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(52px, 7vw, 88px);
+  line-height: 1;
+  color: var(--accent);
+}
+.page-subtitle {
+  margin: 8px 0 22px;
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.15;
+  color: var(--ink);
+}
+.ornament-line {
+  display: block;
+  position: relative;
+  width: 220px;
+  height: 1px;
+  margin: 22px 0;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+.ornament-line::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: -3px;
+  width: 6px; height: 6px;
+  border: 1px solid var(--gold);
+  transform: rotate(45deg);
+  background: var(--bg);
+}
+
+.facts { padding: 40px 0 50px; background: var(--bg); }
+.facts-list { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
+.facts-list li { padding: 0 28px; }
+.facts-list li + li { border-left: 1px solid var(--line); }
+.fact-icon { width: 56px; height: 56px; color: var(--accent); margin: 0 auto 16px; display: block; }
+.facts-list h3 { margin: 0 0 12px; font-size: 17px; font-weight: 500; line-height: 1.3; color: var(--ink); }
+.facts-list p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted); }
+
+.split {
+  display: grid;
+  grid-template-columns: 44% 1fr;
+  align-items: center;
+  background: #fbefe2;
+}
+.split-tools { grid-template-columns: 1fr 46%; background: var(--bg); }
+.split-media { align-self: stretch; }
+.split-media img { width: 100%; height: 100%; object-fit: cover; }
+.split-tools .split-media img {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%);
+  mask-image: linear-gradient(90deg, transparent, #000 25%);
+}
+.split-body { padding: 50px max(16px, 4vw); max-width: 720px; }
+.split-tools .split-body { margin-left: auto; }
+.split-body p, .approach p { margin: 0 0 16px; font-size: 15px; line-height: 1.6; color: var(--text); }
+.section-title {
+  margin: 0 0 20px;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(30px, 3.2vw, 40px);
+  line-height: 1.1;
+  color: var(--accent);
+}
+.link { color: var(--accent); border-bottom: 1px solid currentColor; }
+
+.techniques {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+.techniques li {
+  flex: 1 1 0;
+  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px;
+  font-size: 11px;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--ink);
+}
+.techniques li + li { border-left: 1px solid var(--line); }
+.techniques svg { width: 34px; height: 34px; color: var(--accent); }
+
+.approach { padding: 10px 0 70px; background: var(--bg); }
+.divider-small { margin: 0 0 40px; }
+.divider-small .line { width: 45%; }
+.divider-small .dot { width: 7px; height: 7px; border: 1px solid var(--accent); transform: rotate(45deg); }
+.approach-grid { display: grid; grid-template-columns: 1fr 380px; gap: 60px; align-items: start; }
+.quote {
+  position: relative;
+  margin: 0;
+  padding: 34px 36px 30px 64px;
+  background: #f6e6d4;
+  border-radius: 18px;
+}
+.quote::before {
+  content: "“";
+  position: absolute;
+  left: 22px; top: 6px;
+  font-family: var(--serif);
+  font-size: 72px;
+  color: var(--accent);
+}
+.quote p { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.45; color: var(--ink); margin: 0; }
+.quote svg { display: block; width: 52px; height: 32px; margin: 14px 0 0 auto; color: var(--gold); }
+
+@media (max-width: 980px) {
+  .about-hero { margin-top: 0; padding: 30px 0 40px; }
+  .about-hero-photo { display: none; }
+  .about-hero-content { max-width: none; }
+  .about-hero-mobile { display: block; width: 100%; margin-top: 32px; border-radius: 20px; }
+  .facts-list { grid-template-columns: repeat(2, 1fr); row-gap: 36px; }
+  .facts-list li:nth-child(3) { border-left: 0; }
+  .split, .split-tools { grid-template-columns: 1fr; }
+  .split-tools .split-media { order: -1; }
+  .split-media img { height: auto; aspect-ratio: 16 / 10; }
+  .split-tools .split-media img { -webkit-mask-image: none; mask-image: none; }
+  .split-body { max-width: none; }
+  .approach-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+
+@media (max-width: 600px) {
+  .facts-list { grid-template-columns: 1fr; }
+  .facts-list li + li { border-left: 0; border-top: 1px solid var(--line); padding-top: 30px; }
+  .techniques li { flex: 0 0 25%; min-width: 0; margin-bottom: 14px; }
+  .techniques li + li { border-left: 0; }
+  .quote { padding: 30px 24px 24px 54px; }
+}
+.fact-icon-wide { width: 84px; }
