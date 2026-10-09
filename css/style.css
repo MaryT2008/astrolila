@@ -56,7 +56,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   background: rgba(255, 250, 244, .7);
 }
 .btn-outline:hover { background: var(--accent); color: #fff; }
-.btn-sm { padding: 14px 22px; font-size: 16px; }
+.btn-sm { padding: 14px 22px; font-size: 16px; white-space: nowrap; }
 .btn-arrow { margin-left: 6px; }
 .ico { width: 24px; height: 24px; flex: none; }
 .ico-sm { width: 14px; height: 14px; flex: none; margin-left: 6px; }
@@ -99,6 +99,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 .nav > ul { display: flex; gap: 34px; }
 .nav li { position: relative; }
 .nav > ul > li > a {
+  white-space: nowrap;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -293,7 +294,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   .divider { margin-left: 0; }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1120px) {
   .nav-toggle { display: flex; }
   .nav {
     position: absolute;
@@ -323,7 +324,9 @@ ul { list-style: none; margin: 0; padding: 0; }
     padding: 0 0 0 12px;
   }
   .btn-sm { justify-content: center; }
+}
 
+@media (max-width: 980px) {
   .hero { margin-top: 0; padding: 30px 0 40px; }
   .hero-photo { display: none; }
   .hero-photo-mobile {
@@ -374,20 +377,30 @@ ul { list-style: none; margin: 0; padding: 0; }
 .about-hero-photo {
   position: absolute;
   top: 100px; right: 0; bottom: 0;
-  width: 58%;
+  width: 66%;
 }
 .about-hero-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%), linear-gradient(180deg, transparent, #000 12%);
+  object-position: 70% center;
+  -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.35) 22%, #000 42%), linear-gradient(180deg, transparent, #000 12%, #000 90%, transparent);
   -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(90deg, transparent, #000 25%), linear-gradient(180deg, transparent, #000 12%);
+  mask-image: linear-gradient(90deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.35) 22%, #000 42%), linear-gradient(180deg, transparent, #000 12%, #000 90%, transparent);
   mask-composite: intersect;
 }
 .about-hero-mobile { display: none; }
-.about-hero-content { position: relative; max-width: 420px; }
+.about-hero-content { position: relative; max-width: 540px; }
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 55%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(252, 243, 233, .92) 40%, rgba(252, 243, 233, 0));
+}
+.about-hero .container { position: relative; z-index: 2; }
 
 .breadcrumbs { display: flex; gap: 8px; margin-bottom: 30px; font-size: 13px; color: var(--accent); }
 .breadcrumbs a { color: var(--muted); }
